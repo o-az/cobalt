@@ -106,7 +106,7 @@
                 });
             }
 
-            const render = await ff.render({
+            const render = await ff.remux({
                 blob: file,
                 args: ['-c', 'copy', '-map', '0']
             }).catch(e => {
