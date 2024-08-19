@@ -1,6 +1,6 @@
 <script lang="ts">
     import mime from "mime";
-    import LibAVWrapper from "$lib/libav";
+    import LibAVWrapper from "$lib/libav/remux";
     import { browser } from "$app/environment";
     import { beforeNavigate } from '$app/navigation';
 
