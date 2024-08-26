@@ -3,6 +3,7 @@
     import LibAVWrapper from "$lib/libav/remux";
     import { browser } from "$app/environment";
     import { beforeNavigate } from '$app/navigation';
+    import { onDestroy } from "svelte";
 
     import { openURL } from "$lib/download";
     import { t } from "$lib/i18n/translations";
@@ -97,6 +98,7 @@
                     });
                 return;
             }
+            console.log(file_info)
 
             totalDuration = Number(file_info.format.duration);
 
@@ -161,6 +163,8 @@
     $: if (file) {
         render();
     }
+
+    onDestroy(() => ff.shutdown());
 </script>
 
 <svelte:head>
