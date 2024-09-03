@@ -8,6 +8,7 @@
     import { openURL } from "$lib/download";
     import { t } from "$lib/i18n/translations";
     import { createDialog } from "$lib/dialogs";
+    import { browser } from "$app/environment";
 
     import Skeleton from "$components/misc/Skeleton.svelte";
     import DropReceiver from "$components/misc/DropReceiver.svelte";
@@ -47,7 +48,9 @@
         }
     });
 
-    ff.init();
+    if (browser) {
+        ff.init();
+    }
 
     const render = async () => {
         if (!file || processing) return;
